@@ -1,5 +1,7 @@
-*
-!target/*-runner
-!target/*-runner.jar
-!target/lib/*
-!target/quarkus-app/*
+# Ignora apenas o que não é necessário para o build
+target/
+.idea/
+.git/
+.gitignore
+*.iml
+*.log
