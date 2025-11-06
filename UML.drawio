@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="UML HC" id="uml-hc">
+    <mxGraphModel dx="1334" dy="747" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Interface IDAO -->
+        <mxCell id="2" value="&lt;&lt;Interface&gt;&gt;&#xa;IDAO&#xa;+ inserir(Object): String&#xa;+ alterar(Object): String&#xa;+ excluir(Object): String&#xa;+ listarUm(Object): String" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="220" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= DTOs ================= -->
+        <mxCell id="3" value="Paciente&#xa;- idPaciente: int&#xa;- nome: String&#xa;- cpf: String&#xa;- dataNascimento: LocalDate&#xa;- telefone: String&#xa;- email: String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="360" y="60" width="220" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="4" value="Consulta&#xa;- idConsulta: int&#xa;- idPaciente: int&#xa;- tipo: String&#xa;- status: String&#xa;- dataHora: LocalDateTime" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="660" y="60" width="220" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="5" value="ResultadoExame&#xa;- idResultado: int&#xa;- descricao: String&#xa;- dataResultado: LocalDate&#xa;- idPaciente: int" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="960" y="60" width="220" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="6" value="Notificacao&#xa;- idNotificacao: int&#xa;- mensagem: String&#xa;- dataEnvio: LocalDate&#xa;- status: String&#xa;- idPaciente: int" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="60" y="440" width="220" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="7" value="Faq&#xa;- idFaq: int&#xa;- pergunta: String&#xa;- resposta: String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="360" y="440" width="220" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="8" value="Cuidador&#xa;- idCuidador: int&#xa;- nome: String&#xa;- telefone: String&#xa;- idPaciente: int" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="660" y="440" width="220" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="9" value="Suporte&#xa;- idSuporte: int&#xa;- tipo: String&#xa;- contato: String&#xa;+ iniciarAtendimento(): void&#xa;+ finalizarAtendimento(): void" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="960" y="440" width="260" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="10" value="SistemaLogin&#xa;- codigoVerificacao: String&#xa;+ gerarCodigo(): void&#xa;+ enviarCodigo(String telefone): void&#xa;+ validarCodigo(String input): boolean" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="60" y="820" width="260" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="11" value="Agenda&#xa;- consultas: List&lt;Consulta&gt;&#xa;+ adicionarConsulta(Consulta): void&#xa;+ reagendarUltimaConsulta(Consulta): void&#xa;+ cancelarTodas(): void&#xa;+ listarConsultas(): void" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="360" y="820" width="280" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= DAOs ================= -->
+        <mxCell id="12" value="PacienteDAO&#xa;- con: Connection&#xa;- paciente: Paciente&#xa;+ inserir(Object): String&#xa;+ alterar(Object): String&#xa;+ excluir(Object): String&#xa;+ listarUm(Object): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="360" y="240" width="260" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="13" value="ConsultaDAO&#xa;- con: Connection&#xa;- consulta: Consulta&#xa;+ inserir(Object): String&#xa;+ alterar(Object): String&#xa;+ excluir(Object): String&#xa;+ listarUm(Object): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="660" y="240" width="260" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="14" value="ResultadoExameDAO&#xa;- con: Connection&#xa;- resultadoExame: ResultadoExame&#xa;+ inserir(Object): String&#xa;+ alterar(Object): String&#xa;+ excluir(Object): String&#xa;+ listarUm(Object): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="960" y="240" width="260" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="15" value="NotificacaoDAO&#xa;- con: Connection&#xa;- notificacao: Notificacao&#xa;+ inserir(Object): String&#xa;+ alterar(Object): String&#xa;+ excluir(Object): String&#xa;+ listarUm(Object): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="60" y="620" width="260" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="16" value="FaqDAO&#xa;- con: Connection&#xa;- faq: Faq&#xa;+ inserir(Object): String&#xa;+ alterar(Object): String&#xa;+ excluir(Object): String&#xa;+ listarUm(Object): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="360" y="580" width="260" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="17" value="CuidadorDAO&#xa;- con: Connection&#xa;- cuidador: Cuidador&#xa;+ inserir(Object): String&#xa;+ alterar(Object): String&#xa;+ excluir(Object): String&#xa;+ listarUm(Object): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="660" y="600" width="260" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="18" value="SuporteDAO&#xa;- con: Connection&#xa;- suporte: Suporte&#xa;+ inserir(Object): String&#xa;+ alterar(Object): String&#xa;+ excluir(Object): String&#xa;+ listarUm(Object): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="960" y="620" width="260" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= CONTROLLERS ================= -->
+        <mxCell id="20" value="PacienteController&#xa;+ inserirPaciente(...): String&#xa;+ alterarPaciente(...): String&#xa;+ excluirPaciente(int id): String&#xa;+ listarUmPaciente(int id): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="60" width="280" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="21" value="ConsultaController&#xa;+ inserirConsulta(...): String&#xa;+ alterarConsulta(...): String&#xa;+ excluirConsulta(int id): String&#xa;+ listarUmaConsulta(int id): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="240" width="280" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="22" value="ResultadoExameController&#xa;+ inserirResultado(...): String&#xa;+ alterarResultado(...): String&#xa;+ excluirResultado(int id): String&#xa;+ listarUmResultado(int id): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="420" width="280" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="23" value="NotificacaoController&#xa;+ inserirNotificacao(...): String&#xa;+ alterarNotificacao(...): String&#xa;+ excluirNotificacao(int id): String&#xa;+ listarUmaNotificacao(int id): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="600" width="280" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="24" value="FaqController&#xa;+ inserirFaq(...): String&#xa;+ alterarFaq(...): String&#xa;+ excluirFaq(int id): String&#xa;+ listarUmFaq(int id): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1600" y="60" width="280" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="25" value="CuidadorController&#xa;+ inserirCuidador(...): String&#xa;+ alterarCuidador(...): String&#xa;+ excluirCuidador(int id): String&#xa;+ listarUmCuidador(int id): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1600" y="240" width="280" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="26" value="SuporteController&#xa;+ inserirSuporte(...): String&#xa;+ alterarSuporte(...): String&#xa;+ excluirSuporte(int id): String&#xa;+ listarUmSuporte(int id): String" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1600" y="420" width="280" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Ligações Herança IDAO -->
+        <mxCell id="100" style="endArrow=block;endFill=0;" edge="1" parent="1" source="12" target="2"/>
+        <mxCell id="101" style="endArrow=block;endFill=0;" edge="1" parent="1" source="13" target="2"/>
+        <mxCell id="102" style="endArrow=block;endFill=0;" edge="1" parent="1" source="14" target="2"/>
+        <mxCell id="103" style="endArrow=block;endFill=0;" edge="1" parent="1" source="15" target="2"/>
+        <mxCell id="104" style="endArrow=block;endFill=0;" edge="1" parent="1" source="16" target="2"/>
+        <mxCell id="105" style="endArrow=block;endFill=0;" edge="1" parent="1" source="17" target="2"/>
+        <mxCell id="106" style="endArrow=block;endFill=0;" edge="1" parent="1" source="18" target="2"/>
+
+        <!-- Ligações DAO -> DTO -->
+        <mxCell id="200" style="endArrow=open;" edge="1" parent="1" source="12" target="3"/>
+        <mxCell id="201" style="endArrow=open;" edge="1" parent="1" source="13" target="4"/>
+        <mxCell id="202" style="endArrow=open;" edge="1" parent="1" source="14" target="5"/>
+        <mxCell id="203" style="endArrow=open;" edge="1" parent="1" source="15" target="6"/>
+        <mxCell id="204" style="endArrow=open;" edge="1" parent="1" source="16" target="7"/>
+        <mxCell id="205" style="endArrow=open;" edge="1" parent="1" source="17" target="8"/>
+        <mxCell id="206" style="endArrow=open;" edge="1" parent="1" source="18" target="9"/>
+
+        <!-- Ligações Controller -> DAO -->
+        <mxCell id="300" style="endArrow=open;" edge="1" parent="1" source="20" target="12"/>
+        <mxCell id="301" style="endArrow=open;" edge="1" parent="1" source="21" target="13"/>
+        <mxCell id="302" style="endArrow=open;" edge="1" parent="1" source="22" target="14"/>
+        <mxCell id="303" style="endArrow=open;" edge="1" parent="1" source="23" target="15"/>
+        <mxCell id="304" style="endArrow=open;" edge="1" parent="1" source="24" target="16"/>
+        <mxCell id="305" style="endArrow=open;" edge="1" parent="1" source="25" target="17"/>
+        <mxCell id="306" style="endArrow=open;" edge="1" parent="1" source="26" target="18"/>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
